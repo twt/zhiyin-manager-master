@@ -1,0 +1,37 @@
+## http://stackoverflow.com/questions/20405474/spring-boot-context-root
+#http://localhost:8080/zhiyin-manager/swagger-ui.html
+
+spring:
+  application:
+    name: zhiyin-manager
+  boot:
+    admin:
+#      url: http://101.200.185.137:10008
+      url: http://localhost:10008
+
+server:
+  contextPath: /zhiyin-manager
+  port: 8081
+
+#endpoints:
+#  health:
+#    path: zhiyin-manager/health
+
+multipart:
+# File size limit
+  maxFileSize: 10Mb
+# Total request size for a multipart/form-data
+  maxRequestSize: 100Mb
+
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://101.200.181.234:8761/eureka/
+  instance:
+    home-page-url-path: ${server.contextPath}/
+    statusPageUrlPath: ${server.contextPath}/info
+    healthCheckUrlPath: ${server.contextPath}/health
+

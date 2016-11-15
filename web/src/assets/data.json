@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "code": 200,
+        "message": ""
+    },
+    "data": {
+        "pageSize": 2,
+        "list": [
+            {
+                "id": 1,
+                "name": "乾隆",
+                "description": "逛北京",
+                "avatar": "",
+                "audioIntroduction": ""
+            },
+            {
+                "id": 2,
+                "name": "韦小宝",
+                "description": "吃喝玩乐",
+                "avatar": "",
+                "audioIntroduction": ""
+            }
+        ],
+        "currentPage": 1,
+        "totalPages": 2
+    }
+}

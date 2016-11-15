@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/dubbo-config.properties</value>
+				<value>classpath:config/http-service-url.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" organization="redcocoon" />
+
+	<dubbo:protocol name="dubbo" serialization="kryo" />
+
+    <dubbo:registry address="${dubbo.registry.address}" />
+
+	<!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
+	<dubbo:annotation package="com.zhiyin.manager.module" />
+
+    <!--消费方缺省配置，当ReferenceConfig某属性没有配置时，采用此缺省值，可选。-->
+    <dubbo:consumer check = "false" version="${dubbo.comsumer.version}" />
+
+</beans>
